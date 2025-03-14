@@ -24,7 +24,7 @@ function App() {
       }
     }
 
-    getTodos().then(console.log)
+    getTodos().then((data) => setTodos(data.tasks))
   }, [])
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,6 +39,8 @@ function App() {
       method: 'POST',
       body: JSON.stringify({ name: todo })
     })
+    console.log(JSON.stringify({ name: todo }))
+
     setTodos((prev) => [...prev, newTodo])
     setTodo('')
   }
