@@ -5,7 +5,9 @@ interface Todo {
   name: string
 }
 
-const URL = 'http://localhost:3000/task'
+// const URL = 'http://localhost:3000/task'
+const URL =
+  'https://wf7ukdsuyd676xkk7j4ozqk3my0xpqyv.lambda-url.sa-east-1.on.aws/task'
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([])
