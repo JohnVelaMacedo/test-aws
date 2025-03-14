@@ -18,6 +18,7 @@ function App() {
       try {
         const data = await fetch(URL)
         const resp = await data.json()
+        console.log(resp)
         return resp
       } catch (error) {
         console.error(error)
@@ -37,9 +38,11 @@ function App() {
 
     await fetch(URL, {
       method: 'POST',
-      body: JSON.stringify({ name: todo })
+      body: JSON.stringify({ name: todo }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
-    console.log(JSON.stringify({ name: todo }))
 
     setTodos((prev) => [...prev, newTodo])
     setTodo('')
